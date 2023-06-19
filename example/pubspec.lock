@@ -258,10 +258,11 @@ packages:
   image_painter:
     dependency: transitive
     description:
-      name: image_painter
-      sha256: d0f1637eb87b08a84e2fcf197dda8667365988314c20a9065115762ce43ae3d1
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: f49a60efe8a7f0af3cbb288f6bfa5d15415fac12
+      resolved-ref: f49a60efe8a7f0af3cbb288f6bfa5d15415fac12
+      url: "https://github.com/fodilfliti/yellowQ-Flutter-Image-Painter.git"
+    source: git
     version: "0.5.0"
   image_picker:
     dependency: transitive

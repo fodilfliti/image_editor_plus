@@ -24,8 +24,16 @@ dependencies:
   colorfilter_generator: ^0.0.8
   hand_signature: ^3.0.0
   flutter_image_compress: ^1.1.3
-  image_painter: ^0.5.0
-
+  
+  image_painter:
+    git:
+      url: https://github.com/fodilfliti/yellowQ-Flutter-Image-Painter.git
+      ref: f49a60efe8a7f0af3cbb288f6bfa5d15415fac12
+  # dependency_overrides:
+  # image_painter:
+  #   git:
+  #     url: https://github.com/fodilfliti/yellowQ-Flutter-Image-Painter.git
+  #     ref: 02ddc661c673a8b69f42553d1bb6df4abbdee114
 dev_dependencies:
   flutter_test:
     sdk: flutter

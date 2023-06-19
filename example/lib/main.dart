@@ -25,21 +25,21 @@ class _ImageEditorExampleState extends State<ImageEditorExample> {
   @override
   void initState() {
     super.initState();
-    loadAsset("image.jpg");
+    loadAsset("image.jpeg");
   }
 
   void loadAsset(String name) async {
-    var data = await rootBundle.load('assets/$name');
+    var data = await rootBundle.load('assets/images/$name');
     setState(() => imageData = data.buffer.asUint8List());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("ImageEditor Example"),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   title: const Text("ImageEditor Example"),
+      //   centerTitle: true,
+      // ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

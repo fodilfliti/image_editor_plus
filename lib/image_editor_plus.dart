@@ -1020,24 +1020,53 @@ class _ImagePainterWidgetState extends State<ImagePainterWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text(""),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.check),
-            onPressed: saveImage,
-          )
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.black,
+      //   title: const Text(""),
+      //   actions: [
+      //     IconButton(
+      //       icon: const Icon(Icons.check),
+      //       onPressed: saveImage,
+      //     )
+      //   ],
+      // ),
       body: SafeArea(
         child: Container(
           color: Colors.black,
           child: ImagePainter.memory(
             widget.image,
-            controlsAtTop: false,
+            controlsAtTop: true,
             key: _imageKey,
             scalable: true,
+            clearAllIcon: Icon(Icons.check, color: Colors.white),
+            onSave: saveImage,
+            brushIcon: Stack(
+              clipBehavior: Clip.none,
+              children: const [
+                Icon(
+                  Icons.brush,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                Positioned(
+                  top: -6,
+                  right: -12,
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                    size: 13,
+                  ),
+                ),
+                Positioned(
+                    top: 1,
+                    right: -12,
+                    child: Icon(
+                      Icons.remove_sharp,
+                      color: Colors.white,
+                      size: 13,
+                    ))
+              ],
+            ),
             initialStrokeWidth: 2,
             initialColor: Colors.white,
           ),
