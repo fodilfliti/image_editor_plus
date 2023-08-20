@@ -307,8 +307,8 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: bffd40498e59ea507365d01dc0c94bb3e0186a57
-      resolved-ref: bffd40498e59ea507365d01dc0c94bb3e0186a57
+      ref: "1a8cd6cae432d3dc2720bb71d6d8b28b85c3ba6c"
+      resolved-ref: "1a8cd6cae432d3dc2720bb71d6d8b28b85c3ba6c"
       url: "https://github.com/fodilfliti/yellowQ-Flutter-Image-Painter.git"
     source: git
     version: "0.5.0"

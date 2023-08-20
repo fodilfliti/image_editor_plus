@@ -1028,8 +1028,12 @@ class _ImagePainterWidgetState extends State<ImagePainterWidget> {
       body: SafeArea(
         child: Container(
           color: Colors.black,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           child: ImagePainter.memory(
             widget.image,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             controlsAtTop: true,
             key: _imageKey,
             scalable: true,
