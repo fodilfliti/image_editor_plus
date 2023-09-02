@@ -621,11 +621,11 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
             lastScaleFactor = scaleFactor;
           },
           child: Center(
-            child: SizedBox(
-              height: currentImage.height / pixelRatio,
-              width: currentImage.width / pixelRatio,
-              child: Screenshot(
-                controller: screenshotController,
+            child: Screenshot(
+              controller: screenshotController,
+              child: SizedBox(
+                height: currentImage.height / pixelRatio,
+                width: currentImage.width / pixelRatio,
                 child: RotatedBox(
                   quarterTurns: rotateValue,
                   child: Transform(
