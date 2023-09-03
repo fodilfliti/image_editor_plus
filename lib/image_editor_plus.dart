@@ -621,38 +621,34 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
             //  lastScaleFactor = scaleFactor;
           },
           child: Center(
-            child: Screenshot(
-              controller: screenshotController,
-              child: SizedBox(
-                height: currentImage.height / pixelRatio,
-                width: currentImage.width / pixelRatio,
-                child: SizedBox(
-                  //Screenshot(
-                  // controller: screenshotController,
-                  child: RotatedBox(
-                    quarterTurns: rotateValue,
-                    child: Transform(
-                      transform: Matrix4(
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        1,
-                        0,
-                        x,
-                        y,
-                        0,
-                        1 / scaleFactor,
-                      )..rotateY(flipValue),
-                      alignment: FractionalOffset.center,
-                      child: layersStack,
-                    ),
+            child: SizedBox(
+              // height: currentImage.height / pixelRatio,
+              // width: currentImage.width / pixelRatio,
+              child: Screenshot(
+                controller: screenshotController,
+                child: RotatedBox(
+                  quarterTurns: rotateValue,
+                  child: Transform(
+                    transform: Matrix4(
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      x,
+                      y,
+                      0,
+                      1 / scaleFactor,
+                    )..rotateY(flipValue),
+                    alignment: FractionalOffset.center,
+                    child: layersStack,
                   ),
                 ),
               ),
