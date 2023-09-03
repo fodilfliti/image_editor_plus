@@ -19,15 +19,13 @@ class BackgroundLayer extends StatefulWidget {
 class _BackgroundLayerState extends State<BackgroundLayer> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        //width: widget.layerData.file.width.toDouble(),
-        height: widget.layerData.file.height.toDouble(),
-        color: Colors.black,
-        padding: EdgeInsets.zero,
-        child: Image.memory(
-          widget.layerData.file.image,
-        ),
+    return Container(
+      //width: widget.layerData.file.width.toDouble(),
+      height: widget.layerData.file.height.toDouble(),
+      color: Colors.black,
+      padding: EdgeInsets.zero,
+      child: Image.memory(
+        widget.layerData.file.image,
       ),
     );
   }
