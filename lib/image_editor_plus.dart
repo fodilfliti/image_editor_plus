@@ -530,6 +530,7 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
     );
   }
 
+  bool send = false;
   @override
   Widget build(BuildContext context) {
     viewportSize = MediaQuery.of(context).size;
@@ -667,11 +668,16 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
             child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
               GestureDetector(
                 onTap: () async {
+                  setState(() {
+                    send = true;
+                  });
                   resetTransformation();
 
                   var binaryIntList = await screenshotController.capture(
                       pixelRatio: pixelRatio);
-
+                  setState(() {
+                    send = false;
+                  });
                   Navigator.pop(context, binaryIntList);
                 },
                 child: Container(
@@ -679,11 +685,20 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
                   margin: EdgeInsets.only(right: 8),
                   decoration:
                       BoxDecoration(shape: BoxShape.circle, color: Colors.blue),
-                  child: Icon(
-                    Icons.send,
-                    size: 30,
-                    color: Colors.white,
-                  ),
+                  child: send
+                      ? SizedBox(
+                          width: 30,
+                          height: 30,
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
+                          ))
+                      : Icon(
+                          Icons.send,
+                          size: 30,
+                          color: Colors.white,
+                        ),
                 ),
               )
             ]),
