@@ -1,13 +1,19 @@
+import 'dart:io';
+
+import 'package:camera_with_files/camera_with_files.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_editor_plus/image_editor_plus.dart';
 
 void main() {
-  runApp(
-    const MaterialApp(
-      home: ImageEditorExample(),
-    ),
-  );
+  runApp(ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(home: const ImageEditorExample());
+      }));
 }
 
 class ImageEditorExample extends StatefulWidget {
@@ -48,11 +54,22 @@ class _ImageEditorExampleState extends State<ImageEditorExample> {
           ElevatedButton(
             child: const Text("Single image editor"),
             onPressed: () async {
+              List<File>? data = await Navigator.of(context).push(
+                MaterialPageRoute<List<File>>(
+                  builder: (BuildContext context) => // CameraWidget()
+                      CameraApp(
+                          isMultiple: false,
+                          isSimpleUI: true,
+                          compressionQuality: 75),
+                ),
+              );
+
+              final byts = await data![0].readAsBytes();
               var editedImage = await Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => ImageEditor(
-                    image: imageData,
+                    image: byts,
                   ),
                 ),
               );

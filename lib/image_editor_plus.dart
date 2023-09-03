@@ -534,8 +534,8 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
   Widget build(BuildContext context) {
     viewportSize = MediaQuery.of(context).size;
 
-    var layersStack = Stack(
-      children: layers.map((layerItem) {
+    var layersStack = Stack(children: [
+      ...layers.map((layerItem) {
         // Background layer
         if (layerItem is BackgroundLayerData) {
           return BackgroundLayer(
@@ -581,7 +581,7 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
         // Blank layer
         return Container();
       }).toList(),
-    );
+    ]);
 
     widthRatio = currentImage.width / viewportSize.width;
     heightRatio = currentImage.height / viewportSize.height;
@@ -600,25 +600,25 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
             // print(details);
 
             // move
-            if (details.pointerCount == 1) {
-              // print(details.focalPointDelta);
-              x += details.focalPointDelta.dx;
-              y += details.focalPointDelta.dy;
-              setState(() {});
-            }
+            // if (details.pointerCount == 1) {
+            //   // print(details.focalPointDelta);
+            //   x += details.focalPointDelta.dx;
+            //   y += details.focalPointDelta.dy;
+            //   setState(() {});
+            // }
 
             // scale
-            if (details.pointerCount == 2) {
-              // print([details.horizontalScale, details.verticalScale]);
-              if (details.horizontalScale != 1) {
-                scaleFactor = lastScaleFactor *
-                    math.min(details.horizontalScale, details.verticalScale);
-                setState(() {});
-              }
-            }
+            // if (details.pointerCount == 2) {
+            //   // print([details.horizontalScale, details.verticalScale]);
+            //   if (details.horizontalScale != 1) {
+            //     scaleFactor = lastScaleFactor *
+            //         math.min(details.horizontalScale, details.verticalScale);
+            //     setState(() {});
+            //   }
+            // }
           },
           onScaleEnd: (details) {
-            lastScaleFactor = scaleFactor;
+            //  lastScaleFactor = scaleFactor;
           },
           child: Center(
             child: Screenshot(
@@ -626,29 +626,33 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
               child: SizedBox(
                 height: currentImage.height / pixelRatio,
                 width: currentImage.width / pixelRatio,
-                child: RotatedBox(
-                  quarterTurns: rotateValue,
-                  child: Transform(
-                    transform: Matrix4(
-                      1,
-                      0,
-                      0,
-                      0,
-                      0,
-                      1,
-                      0,
-                      0,
-                      0,
-                      0,
-                      1,
-                      0,
-                      x,
-                      y,
-                      0,
-                      1 / scaleFactor,
-                    )..rotateY(flipValue),
-                    alignment: FractionalOffset.center,
-                    child: layersStack,
+                child: SizedBox(
+                  //Screenshot(
+                  // controller: screenshotController,
+                  child: RotatedBox(
+                    quarterTurns: rotateValue,
+                    child: Transform(
+                      transform: Matrix4(
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        x,
+                        y,
+                        0,
+                        1 / scaleFactor,
+                      )..rotateY(flipValue),
+                      alignment: FractionalOffset.center,
+                      child: layersStack,
+                    ),
                   ),
                 ),
               ),
