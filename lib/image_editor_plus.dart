@@ -1047,6 +1047,7 @@ class _ImagePainterWidgetState extends State<ImagePainterWidget> {
           height: MediaQuery.of(context).size.height,
           child: ImagePainter.memory(
             widget.image,
+            initialPaintMode: PaintMode.none,
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             controlsAtTop: true,
