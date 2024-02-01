@@ -28,7 +28,7 @@ dependencies:
   image_painter:
     git:
       url: https://github.com/fodilfliti/yellowQ-Flutter-Image-Painter.git
-      ref: 559dfb1841f118ce53124b7d14eee304a6c09129
+      ref: bf58a3d15a07ff4b33a9953f5647cd870f431f84
  
 dev_dependencies:
   flutter_test:
