@@ -16,7 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   font_awesome_flutter: ^10.1.0
   image_picker: ^1.0.2
-  screenshot: ^2.1.0
+  screenshot: ^3.0.0
   flutter_colorpicker: ^1.0.3
   extended_image: ^8.0.2
   image: ^4.0.15
